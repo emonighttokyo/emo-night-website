@@ -815,3 +815,36 @@ html {
     opacity: 0.9;
   }
 }
+@media (max-width: 768px) {
+  .bottom-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .bottom-left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .social-col {
+    gap: 24px;
+  }
+
+  .social-col a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .bottom-contact-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
