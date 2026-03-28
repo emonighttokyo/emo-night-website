@@ -791,6 +791,7 @@ html {
     width: 150px;
     height: auto;
   }
+}
 .event-poster-text {
   color: #fff !important;
   font-weight: 600;
@@ -804,12 +805,12 @@ html {
 }
 @media (max-width: 768px) {
   .about-title {
-    font-size: 36px;
+    font-size: 30px;
     line-height: 1.1;
   }
 
   .about-text {
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.7;
     opacity: 0.9;
   }
