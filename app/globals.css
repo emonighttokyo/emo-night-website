@@ -758,3 +758,37 @@ html {
     left: 100%;
   }
 }
+.hero-title {
+  font-size: clamp(32px, 8vw, 80px);
+  line-height: 1.1;
+}
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .site-header {
+    padding: 14px 0;
+  }
+
+  .header-inner {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .ticket-button {
+    display: none;
+  }
+
+  .logo img,
+  .logo-image,
+  .hero-logo {
+    width: 150px;
+    height: auto;
+  }
+}
