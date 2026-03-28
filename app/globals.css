@@ -792,3 +792,6 @@ html {
     height: auto;
   }
 }
+.next-event-left h2 {
+  color: #fff;
+}
