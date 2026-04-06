@@ -1,65 +1,248 @@
-import Image from "next/image";
+"use client";
+
+import { motion, type Variants } from "framer-motion";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main>
+      <motion.header
+        className="site-header"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <div className="container header-inner">
+          <a href="#" className="logo">
+            <img src="/hero-logo.png" alt="Emo Night Tokyo logo" />
+          </a>
+
+          <nav className="site-nav">
+            <a href="#about">ABOUT US</a>
+            <a href="#event">NEXT EVENT</a>
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScdlOr99HYUlMh97JZO8_eEBwqbQJao3uyhvlAeCKUh3sgNJQ/viewform?usp=sharing&ouid=116718627686524602517"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              CONTACT
+            </a>
+          </nav>
+
+          <a
+            href="https://linktr.ee/emonighttokyo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ticket-button"
+          >
+            BUY TICKETS ↗
+          </a>
+        </div>
+      </motion.header>
+
+      <section className="hero">
+        <video className="hero-video" autoPlay muted loop playsInline>
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        <div className="hero-overlay" />
+
+        <div className="container hero-content">
+          <p className="hero-label">
+            TOKYO EMO / ALT / ROCK / METAL NIGHT
           </p>
+
+          <h1 className="hero-title">Saddest Party In Tokyo</h1>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      <section className="next-event-section" id="event">
+        <div className="container next-event-grid">
+          <motion.div
+            className="next-event-left"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className="next-event-tag">NEXT EVENT</div>
+            <h2 className="next-event-date">MAY 2</h2>
+            <p className="next-event-venue">Circus Shibuya</p>
+          </motion.div>
+
+          <motion.div
+            className="next-event-right"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           >
-            Documentation
-          </a>
+            <div className="event-card">
+              <div className="event-poster">
+                <img
+                  src="/flyer.jpg"
+                  alt="Emo Night Tokyo – May 2 at Circus Tokyo Shibuya"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+
+              <a
+                href="https://linktr.ee/emonighttokyo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="event-ticket-strip"
+              >
+                <span>GET TICKETS ↗</span>
+              </a>
+            </div>
+          </motion.div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <div id="tickets" />
+
+      <section className="section about-section" id="about">
+        <div className="container">
+          <motion.h2
+            className="about-title"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            ABOUT US
+          </motion.h2>
+
+          <motion.p
+            className="about-content about-text"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Emo Night Tokyo is the saddest party in Tokyo. Since April 2022,
+            we’ve created a space for people to connect through emo,
+            alternative, rock, and metal music — built on nostalgia, emotion,
+            and community.
+            <br />
+            <br />
+            This isn’t your typical club night. It’s a gathering of like-minded
+            people who come to sing, scream, and feel something together.
+            <br />
+            <br />
+            From local Japanese acts to international artists, we aim to
+            showcase music that brings cultures, emotions, and people together.
+            <br />
+            <br />
+            Join us for the saddest night in Tokyo.
+          </motion.p>
+
+          <div className="about-scroll">
+            <div className="about-scroll-track">
+              {Array.from({ length: 16 }).map((_, i) => (
+                <img
+                  key={`img-${i}`}
+                  src={`/about-${i + 1}.jpg`}
+                  alt={`About ${i + 1}`}
+                />
+              ))}
+
+              {Array.from({ length: 16 }).map((_, i) => (
+                <img
+                  key={`img-dup-${i}`}
+                  src={`/about-${i + 1}.jpg`}
+                  alt={`About duplicate ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bottom-section" id="contact">
+        <div className="container bottom-grid">
+          <div className="bottom-left">
+            <div className="social-col">
+              <a
+                href="https://www.instagram.com/emonighttokyo/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                INSTAGRAM
+              </a>
+
+              <a
+                href="https://www.facebook.com/p/Emo-Night-Tokyo-61567153775254/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                FACEBOOK
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@emonighttokyo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TIKTOK
+              </a>
+            </div>
+
+            <div className="social-col">
+              <a
+                href="https://x.com/EmoNightTokyo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                X (TWITTER)
+              </a>
+
+              <a
+                href="https://www.reddit.com/r/EmoNightTokyo/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                REDDIT
+              </a>
+
+              <a
+                href="https://www.bandsintown.com/a/15525557-emo-night-tokyo?came_from=250&utm_medium=web&utm_source=home&utm_campaign=search_bar&noindex=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BANDSINTOWN
+              </a>
+            </div>
+          </div>
+
+          <div className="bottom-right">
+            <div className="contact-top">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScdlOr99HYUlMh97JZO8_eEBwqbQJao3uyhvlAeCKUh3sgNJQ/viewform?usp=sharing&ouid=116718627686524602517"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bottom-contact-button"
+              >
+                CONTACT US
+              </a>
+
+              <p className="contact-text">
+                For bookings and performance inquiries.
+              </p>
+            </div>
+
+            <div className="bottom-line"></div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
