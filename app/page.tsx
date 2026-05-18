@@ -74,8 +74,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div className="next-event-tag">NEXT EVENT</div>
-            <h2 className="next-event-date">MAY 2</h2>
-            <p className="next-event-venue">Circus Shibuya</p>
+            <h2 className="next-event-date">MAY 30</h2>
+            <p className="next-event-venue">Retronym, Shimo-Kitazawa</p>
           </motion.div>
 
           <motion.div
