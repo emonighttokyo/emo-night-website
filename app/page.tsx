@@ -90,7 +90,7 @@ export default function Home() {
                 <img
                   src="/halloween-flyer.png"
                   alt="Emo Night Tokyo – Halloween – Oct 31 at Club Asia Shibuya"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                 />
               </div>
 
