@@ -848,3 +848,10 @@ html {
     line-height: 1.6;
   }
 }
+
+/* Poster box matches the flyer shape (4:5) so there is no empty space */
+.event-poster {
+  height: auto !important;
+  aspect-ratio: 4 / 5;
+  background: transparent;
+}
