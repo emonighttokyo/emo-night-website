@@ -74,8 +74,8 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div className="next-event-tag">NEXT EVENT</div>
-            <h2 className="next-event-date">MAY 30</h2>
-            <p className="next-event-venue">Retronym, Shimo-Kitazawa</p>
+            <h2 className="next-event-date">OCT 31</h2>
+            <p className="next-event-venue">Club Asia, Shibuya</p>
           </motion.div>
 
           <motion.div
@@ -88,8 +88,8 @@ export default function Home() {
             <div className="event-card">
               <div className="event-poster">
                 <img
-                  src="/flyer.jpg"
-                  alt="Emo Night Tokyo – May 2 at Circus Tokyo Shibuya"
+                  src="/halloween-flyer.png"
+                  alt="Emo Night Tokyo – Halloween – Oct 31 at Club Asia Shibuya"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                 />
               </div>
